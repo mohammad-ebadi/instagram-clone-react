@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    min-height: 100vh;
+    background-color: green;
+
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 0 20px black;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(168, 164, 164 , 0.8);
+}
+.form button{
+    cursor: pointer;
+}
