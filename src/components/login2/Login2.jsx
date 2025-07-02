@@ -25,7 +25,7 @@ export default function Login2() {
         <input
           type="text"
           required
-          placeholder="text..."
+          placeholder="Text..."
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
