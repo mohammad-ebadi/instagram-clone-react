@@ -1,12 +1,14 @@
-import styles from "./App.module.css";
-export default function App() {
+import React from "react";
+import Login from "./components/login/Login";
+import Login2 from "./components/login2/Login2";
+
+function App() {
   return (
-    <div className={styles.container}>
-      <form action="" className={styles.form}>
-        <input type="email" placeholder="Email..." required/>
-        <input type="password" placeholder="Password..." required/>
-        <button type="submit">Sign In</button>
-      </form>
+    <div>
+      {/* <Login></Login> */}
+      <Login2></Login2>
     </div>
   );
 }
+
+export default App;
