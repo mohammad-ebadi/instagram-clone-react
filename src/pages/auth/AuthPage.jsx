@@ -9,7 +9,7 @@ function AuthPage() {
         <Flex justifyContent={"center"} alignItems={"center"} gap={10}>
           <Box display={{ base: "none", md: "block" }}>
             <Image
-              src="../../../public/auth.png"
+              src="/auth.png"
               h={650}
               alt="Phone image"
             ></Image>
@@ -20,12 +20,12 @@ function AuthPage() {
             <Box textAlign={"center"}>Get the App</Box>
             <Flex gap={5} justifyContent={"center"}>
               <Image
-                src="../../../public/playstore.png"
+                src="/playstore.png"
                 h={10}
                 alt="Playstore logo"
               ></Image>
               <Image
-                src="../../../public/microsoft.png"
+                src="/microsoft.png"
                 h={10}
                 alt="Microsoft logo"
               ></Image>

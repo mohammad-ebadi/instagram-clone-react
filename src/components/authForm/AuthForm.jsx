@@ -31,7 +31,7 @@ function AuthForm() {
       <Box border={"1px solid gray"} borderRadius={4} padding={5}>
         <VStack>
           <Image
-            src="/public/logo.png"
+            src="/logo.png"
             h={24}
             cursor={"pointer"}
             alt="Instagram logo"
@@ -92,7 +92,7 @@ function AuthForm() {
             cursor={"pointer"}
           >
             <Image
-              src="../../../public/google.png"
+              src="/google.png"
               w={5}
               alt="Google logo"
             ></Image>
