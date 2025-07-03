@@ -31,7 +31,7 @@ function AuthForm() {
       <Box border={"1px solid gray"} borderRadius={4} padding={5}>
         <VStack>
           <Image
-            src="../../../public/logo.png"
+            src="/public/logo.png"
             h={24}
             cursor={"pointer"}
             alt="Instagram logo"
