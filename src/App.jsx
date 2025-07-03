@@ -1,13 +1,16 @@
 import React from "react";
-import Login from "./components/login/Login";
-import Login2 from "./components/login2/Login2";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/home/Home";
+import AuthPage from "./pages/auth/AuthPage";
 
 function App() {
   return (
-    <div>
-      {/* <Login></Login> */}
-      <Login2></Login2>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<AuthPage></AuthPage>}></Route>
+        {/* <Route path="/auth" element={<AuthPage></AuthPage>}></Route> */}
+      </Routes>
+    </>
   );
 }
 
