@@ -82,12 +82,12 @@ function Sidebar() {
 
 
         <Flex>
-        <Link to={"/"} as={RouterLink} pl={2} display={{base:"none" , md:"block"}}>
+        <Link to={"/auth"} as={RouterLink} pl={2} display={{base:"none" , md:"block"}}>
         <Flex justifyContent={"center"} alignItems={"center"} p={5}>
             <img src="/logout_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="Logout logo"/><p>Logout</p>
         </Flex>
         </Link>
-        <Link to={"/"} as={RouterLink} pl={2} display={{base:"block" , md:"none"}} >
+        <Link to={"/auth"} as={RouterLink} pl={2} display={{base:"block" , md:"none"}} >
             <img src="/logout_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="Logout logo"/>
         </Link>
       </Flex>
