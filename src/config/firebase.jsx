@@ -12,7 +12,7 @@ import { getStorage } from "firebase/storage";
 const firebaseConfig = {
   apiKey: "AIzaSyCrPbUMM-eyqHlfsi8-P4NpvdKTecX3QyQ",
   authDomain: "insta-react-mohammad.firebaseapp.com",
-  projectId: "insta-react-mohammad", 
+  projectId: "insta-react-mohammad",
   storageBucket: "insta-react-mohammad.firebasestorage.app",
   messagingSenderId: "193197918033",
   appId: "1:193197918033:web:3d4664591eeec30c96b570",
@@ -29,4 +29,4 @@ const storage = getStorage(app);
 const db = getFirestore(app);
 
 //Exports
-export { db, auth, storage, analytics };
+export { db, auth, storage, analytics, app };

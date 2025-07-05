@@ -8,7 +8,7 @@ function AuthPage() {
       <Container maxW={"container.md"} padding={0} >
         <Flex justifyContent={"center"} alignItems={"center"} gap={10} >
           <Box display={{ base: "none", md: "block" }}>
-            <Image src="/auth.png" h={650} alt="Phone image"></Image>
+            <Image src="/instagram-web-lox-image-2x.png" h={650} w={650} alt="Phone image"></Image>
           </Box>
 
           <VStack align={"stretch"}>
