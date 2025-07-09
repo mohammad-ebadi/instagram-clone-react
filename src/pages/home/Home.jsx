@@ -1,10 +1,24 @@
+import FeedPosts from "@/components/feedPosts/FeedPosts";
+import { Box, Container, Flex } from "@chakra-ui/react";
 import React from "react";
 
 function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+   <Container maxW={"container.lg"}>
+    <Flex gap={20}>
+      <Box bg={"blue.200"} flex={2}  py={10}>
+        <h1>FeedPost</h1>
+        <FeedPosts></FeedPosts>
+      </Box>
+
+
+
+      <Box bg={"red.200"} flex={3} mr={20} display={{base:"none" , lg:"block"}} maxW={"300"}>
+        <h1>Suggested user</h1>
+      </Box>
+    </Flex>
+
+   </Container>
   );
 }
 

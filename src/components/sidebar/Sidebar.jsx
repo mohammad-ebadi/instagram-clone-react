@@ -15,7 +15,7 @@ function Sidebar() {
         left={0}
         px={{ base: 2, md: 4 }}
       >
-        <Flex direction={"column"} gap={10} w="full" h={"full"}>
+        <Flex direction={"column"} gap={5} w="full" h={"full"}>
           <Link
             to="/"
             as={RouterLink}
