@@ -1,5 +1,5 @@
 import FeedPosts from "@/components/feedPosts/FeedPosts";
-import SuggestedUsers from "@/components/suggestedUsers/SuggestedUsers";
+import SuggestedUsers from "@/components/suggestedUsers/SuggestedUsers.jsx";
 import { Box, Container, Flex } from "@chakra-ui/react";
 import React from "react";
 
@@ -12,7 +12,6 @@ function Home() {
         </Box>
 
         <Box
-          
           flex={1}
           mr={20}
           display={{ base: "none", lg: "block" }}
