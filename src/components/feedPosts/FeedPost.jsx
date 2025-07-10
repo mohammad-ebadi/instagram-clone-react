@@ -2,12 +2,14 @@ import React from "react";
 import FeedPostHeader from "./FeedPostHeader";
 import { Box, Image } from "@chakra-ui/react";
 import FeedPostFooter from "./FeedPostFooter";
-function FeedPost() {
+function FeedPost({img,username,avatar}) {
   return (
-    <Box  borderRadius={10}  boxShadow={"0 0 10px"}>
-      <FeedPostHeader></FeedPostHeader>
-      <Image src="/img6.png"></Image>
-      <FeedPostFooter></FeedPostFooter>
+    <Box >
+      <FeedPostHeader username={username} avatar={avatar}></FeedPostHeader>
+      <Box my={2}>
+        <Image src={img} borderRadius={5}></Image>
+      </Box>
+      <FeedPostFooter username={username}></FeedPostFooter>
     </Box>
   );
 }
