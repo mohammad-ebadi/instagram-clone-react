@@ -10,6 +10,7 @@ function SuggestedUser({ username, avatar, followers }) {
           <Avatar.Fallback name={username} />
           <Avatar.Image src={avatar} />
         </Avatar.Root>
+        
         <VStack gap={2} alignItems={"flex-start"}>
           <Box fontSize={12} fontWeight={"bold"}>
             {username}
