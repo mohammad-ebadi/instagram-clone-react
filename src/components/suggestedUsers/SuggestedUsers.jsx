@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Text, VStack } from "@chakra-ui/react";
 import React from "react";
-import SuggestedHeader from "./SuggestedHeader";
-import SuggestedUser from "./suggestedUser";
+import SuggestedHeader from "./SuggestedHeader.jsx";
+import SuggestedUser from "./SuggestedUser.jsx";
 
 function SuggestedUsers() {
   return (
