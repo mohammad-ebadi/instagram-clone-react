@@ -8,26 +8,13 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Login from "./Login.jsx";
+import Signup from "./Signup.jsx";
 
 function AuthForm() {
-  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
-  const [inputs, setInputs] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const handleAuth = () => {
-    // console.log("inputs", inputs);
-    if (!inputs.email || !inputs.password) {
-      alert("Please fill the fields");
-      return;
-    }
-    navigate("/");
-  };
   return (
-    <div>
+    <>
       <Box border={"1px solid gray"} borderRadius={4} padding={5}>
         <VStack>
           <Image
@@ -36,45 +23,8 @@ function AuthForm() {
             cursor={"pointer"}
             alt="Instagram logo"
           ></Image>
-          <Input
-            placeholder="Email"
-            fontSize={"14"}
-            type="email"
-            value={inputs.email}
-            onChange={(e) => {
-              setInputs({ ...inputs, email: e.target.value });
-            }}
-          ></Input>
-          <Input
-            placeholder="Password"
-            fontSize={"14"}
-            type="password"
-            value={inputs.password}
-            onChange={(e) => {
-              setInputs({ ...inputs, password: e.target.value });
-            }}
-          ></Input>
+          {isLogin ? <Login></Login> : <Signup></Signup>}
 
-          {!isLogin ? (
-            <Input
-              placeholder="Confirm Password"
-              fontSize={"14"}
-              type="password"
-              value={inputs.confirmPassword}
-              onChange={(e) => {
-                setInputs({ ...inputs, confirmPassword: e.target.value });
-              }}
-            ></Input>
-          ) : null}
-          <Button
-            width={"full"}
-            colorScheme={"blue"}
-            size={"sm"}
-            fontSize={14}
-            onClick={handleAuth}
-          >
-            {isLogin ? "Login" : "Sign Up"}
-          </Button>
           <Flex
             justifyContent={"center"}
             alignItems={"center"}
@@ -114,7 +64,7 @@ function AuthForm() {
           </Box>
         </Flex>
       </Box>
-    </div>
+    </>
   );
 }
 
