@@ -1,7 +1,7 @@
 import React from "react";
-import FeedPostHeader from "./FeedPostHeader";
+import FeedPostHeader from "./FeedPostHeader.jsx";
 import { Box, Image } from "@chakra-ui/react";
-import FeedPostFooter from "./FeedPostFooter";
+import FeedPostFooter from "./FeedPostFooter.jsx";
 function FeedPost({img,username,avatar}) {
   return (
     <Box >

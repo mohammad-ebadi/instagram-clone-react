@@ -1,4 +1,4 @@
-import { CommentLogo, NotificationsLogo, UnlikeLogo } from "@/assets/constants";
+import { CommentLogo, NotificationsLogo, UnlikeLogo } from "@/assets/constants.jsx";
 import { Box, Button, Flex, InputGroup, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Input } from "@chakra-ui/react";
