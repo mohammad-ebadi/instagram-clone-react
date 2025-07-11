@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import AuthPage from "./pages/auth/AuthPage";
 import PageLayout from "./layouts/pageLayout/PageLayout";
+import ProfilePage from "./pages/profilePage/ProfilePage";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/auth" element={<AuthPage></AuthPage>}></Route>
+        <Route path="/:username" element={<ProfilePage></ProfilePage>}></Route>
       </Routes>
     </PageLayout>
   );

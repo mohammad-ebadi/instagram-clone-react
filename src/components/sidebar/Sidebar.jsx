@@ -116,7 +116,7 @@ function Sidebar() {
           </Link>
 
           <Link
-            to="/"
+            to="/username"
             as={RouterLink}
             pl={2}
             display={{ base: "none", md: "block" }}
@@ -129,7 +129,7 @@ function Sidebar() {
             <p>Profile</p>
           </Link>
           <Link
-            to="/"
+            to="/username"
             as={RouterLink}
             pl={2}
             display={{ base: "block", md: "none" }}
