@@ -5,16 +5,15 @@ import { auth } from "@/config/firebase";
 import { useNavigate } from "react-router-dom";
 
 function Signup() {
-  const navigate=useNavigate("")
+  const navigate = useNavigate("");
   const handleSignup = async () => {
     try {
       await createUserWithEmailAndPassword(auth, inputs.email, inputs.password);
-      alert("OK")
-      console.log("Clicked")
-      navigate("/")
+      alert("OK");
+      console.log("Clicked");
+      navigate("/");
     } catch (error) {
-      alert(error.message)
-
+      alert(error.message);
     }
   };
   const [inputs, setInputs] = useState({
