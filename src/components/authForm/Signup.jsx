@@ -1,7 +1,22 @@
 import { Button, Input } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/config/firebase";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
+  const navigate=useNavigate("")
+  const handleSignup = async () => {
+    try {
+      await createUserWithEmailAndPassword(auth, inputs.email, inputs.password);
+      alert("OK")
+      navigate("/")
+      console.log("Clicked")
+    } catch (error) {
+      alert(error.message)
+
+    }
+  };
   const [inputs, setInputs] = useState({
     fullName: "",
     userName: "",
@@ -55,7 +70,15 @@ function Signup() {
         }}
       ></Input>
 
-      <Button width={"full"} colorScheme={"blue"} size={"sm"} fontSize={14}>
+      <Button
+        width={"full"}
+        colorScheme={"blue"}
+        size={"sm"}
+        fontSize={14}
+        onClick={() => {
+          handleSignup();
+        }}
+      >
         Sign Up
       </Button>
     </>

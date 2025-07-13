@@ -10,6 +10,7 @@ import {
 import React, { useState } from "react";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
+import GoogleAuth from "./GoogleAuth.jsx";
 
 function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
@@ -36,16 +37,7 @@ function AuthForm() {
             <Text>Or</Text>
             <Box flex={2} h={"1px"} bg={"gray.400"}></Box>
           </Flex>
-          <Flex
-            alignItems={"center"}
-            justifyContent={"center"}
-            cursor={"pointer"}
-          >
-            <Image src="/google.png" w={5} alt="Google logo"></Image>
-            <Text mx={2} color={"blue.500"}>
-              Login with Google
-            </Text>
-          </Flex>
+          <GoogleAuth></GoogleAuth>
         </VStack>
       </Box>
       <Box border={"1px solid gray"} borderRadius={4} padding={5} my={5}>

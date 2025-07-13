@@ -29,4 +29,6 @@ const storage = getStorage(app);
 const firestore = getFirestore(app);
 
 //Exports
-export { firestore, auth, storage, analytics, app };
+export { firestore, auth, storage, analytics, app};
+
+
