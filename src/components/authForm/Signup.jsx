@@ -2,15 +2,14 @@ import { Button, Input } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/config/firebase";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function Signup() {
-  const navigate=useNavigate("")
+  // const navigate=useNavigate("")
   const handleSignup = async () => {
     try {
       await createUserWithEmailAndPassword(auth, inputs.email, inputs.password);
       alert("OK")
-      navigate("/")
       console.log("Clicked")
     } catch (error) {
       alert(error.message)
