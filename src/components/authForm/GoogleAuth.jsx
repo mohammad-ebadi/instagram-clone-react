@@ -2,6 +2,7 @@ import { Flex, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "@/config/firebase";
+import { useNavigate } from "react-router-dom";
 
 function GoogleAuth() {
   const [errorMsg, setErrorMsg] = useState("");
