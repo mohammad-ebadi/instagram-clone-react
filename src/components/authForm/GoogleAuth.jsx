@@ -5,6 +5,7 @@ import { auth } from "@/config/firebase";
 
 function GoogleAuth() {
   const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate("");
 
   const handleGoogle = async () => {
     const provider = new GoogleAuthProvider();
@@ -12,6 +13,7 @@ function GoogleAuth() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       alert(`Signed in successfully as ${user.displayName}`);
+      navigate("/")
     } catch (error) {
       switch (error.code) {
         case "auth/popup-closed-by-user":
