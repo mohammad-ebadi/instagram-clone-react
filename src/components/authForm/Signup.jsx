@@ -11,16 +11,16 @@ function Signup() {
     setErrorMsg("");
     try {
       await createUserWithEmailAndPassword(auth, inputs.email, inputs.password);
-      alert("Your Account Created Succesfully ✅.");
+      alert("Your Account Created successfully ✅.");
       navigate("/");
     } catch (error) {
       // alert(error.message);
       switch (error.code) {
         case "auth/email-already-in-use":
-          setErrorMsg("This email is taken by someone else ❌.");
+          setErrorMsg("This email is taken by someone else.");
           break;
         case "auth/invalid-email":
-          setErrorMsg("Your email is not valid");
+          setErrorMsg("Your email is not valid.");
           break;
         case "auth/weak-password":
           setErrorMsg("Your password must be at least 6 characters long.");

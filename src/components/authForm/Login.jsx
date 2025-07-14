@@ -16,13 +16,13 @@ function Login() {
     setErrorMsg("");
     try {
       await signInWithEmailAndPassword(auth, inputs.email, inputs.password);
-      alert("Your Signed In Succesfully ✅.");
+      alert("Your Signed In successfully ✅.");
       navigate("/");
     } catch (error) {
       // alert(error.message);
       switch (error.code) {
         case "auth/user-not-found":
-          setErrorMsg("No user found with this email ❌.");
+          setErrorMsg("No user found with this email.");
           break;
         case "auth/wrong-password":
           setErrorMsg("The password is incorrect.");

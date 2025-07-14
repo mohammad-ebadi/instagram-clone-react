@@ -1,15 +1,54 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "@/config/firebase";
 
 function GoogleAuth() {
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleGoogle = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      alert(`Signed in successfully as ${user.displayName}`);
+    } catch (error) {
+      switch (error.code) {
+        case "auth/popup-closed-by-user":
+          setErrorMsg(
+            "The sign-in popup was closed before completing the sign-in."
+          );
+          break;
+        case "auth/cancelled-popup-request":
+          setErrorMsg(
+            "Another popup request was already in progress. Please try again."
+          );
+          break;
+        case "auth/network-request-failed":
+          setErrorMsg(
+            "Network error Please check your connection and try again."
+          );
+          break;
+        default:
+          setErrorMsg("Google sign-in failed. Please try again.");
+      }
+    }
+  };
   return (
     <>
       <Flex alignItems={"center"} justifyContent={"center"} cursor={"pointer"}>
         <Image src="/google.png" w={5} alt="Google logo"></Image>
-        <Text mx={2} color={"blue.500"}>
+        <Text
+          mx={2}
+          color={"blue.500"}
+          onClick={() => {
+            handleGoogle();
+          }}
+        >
           Login with Google
         </Text>
       </Flex>
+      <p>{errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}</p>
     </>
   );
 }
