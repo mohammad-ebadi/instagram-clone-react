@@ -6,14 +6,28 @@ import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const navigate = useNavigate("");
+  const [errorMsg, setErrorMsg] = useState("");
   const handleSignup = async () => {
+    setErrorMsg("");
     try {
       await createUserWithEmailAndPassword(auth, inputs.email, inputs.password);
-      alert("OK");
-      console.log("Clicked");
+      alert("Your Account Created Succesfully ✅.");
       navigate("/");
     } catch (error) {
-      alert(error.message);
+      // alert(error.message);
+      switch (error.code) {
+        case "auth/email-already-in-use":
+          setErrorMsg("This email is taken by someone else ❌.");
+          break;
+        case "auth/invalid-email":
+          setErrorMsg("Your email is not valid");
+          break;
+        case "auth/weak-password":
+          setErrorMsg("Your password must be at least 6 characters long.");
+          break;
+        default:
+          setErrorMsg("An error has occurred. Please try again.");
+      }
     }
   };
   const [inputs, setInputs] = useState({
@@ -80,6 +94,7 @@ function Signup() {
       >
         Sign Up
       </Button>
+      {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
     </>
   );
 }

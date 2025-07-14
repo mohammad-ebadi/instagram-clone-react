@@ -10,14 +10,29 @@ function Login() {
     email: "",
     password: "",
   });
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSignIn = async () => {
+    setErrorMsg("");
     try {
       await signInWithEmailAndPassword(auth, inputs.email, inputs.password);
-      alert("Login Ok");
+      alert("Your Signed In Succesfully ✅.");
       navigate("/");
     } catch (error) {
-      alert(error.message);
+      // alert(error.message);
+      switch (error.code) {
+        case "auth/user-not-found":
+          setErrorMsg("No user found with this email ❌.");
+          break;
+        case "auth/wrong-password":
+          setErrorMsg("The password is incorrect.");
+          break;
+        case "auth/invalid-email":
+          setErrorMsg("Your email is not valid.");
+          break;
+        default:
+          setErrorMsg("An error has occurred. Please try again.");
+      }
     }
   };
   return (
@@ -51,6 +66,7 @@ function Login() {
       >
         Login
       </Button>
+      {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
     </>
   );
 }
