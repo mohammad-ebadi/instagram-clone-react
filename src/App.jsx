@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import AuthPage from "./pages/auth/AuthPage";
 import PageLayout from "./layouts/pageLayout/PageLayout";
