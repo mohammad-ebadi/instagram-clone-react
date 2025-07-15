@@ -44,7 +44,7 @@ function Signup() {
         const userDoc = {
           uid: newUser.user.uid,
           email: inputs.email,
-          password: inputs.password,
+          // password: inputs.password,
           userName: inputs.userName,
           fullName: inputs.fullName,
           bio: "",
