@@ -5,6 +5,7 @@ import { auth, firestore } from "../../config/firebase.jsx";
 console.log("firestore imported properly");
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
+import { serverTimestamp } from "firebase/firestore";
 
 function Signup() {
   const navigate = useNavigate("");
@@ -48,7 +49,7 @@ function Signup() {
           followers: [],
           following: [],
           posts: [],
-          createdAt: Date.now(),
+          createdAt: serverTimestamp(),
         };
         await setDoc(doc(firestore, "users", newUser.user.uid), userDoc);
         localStorage.setItem("user-Info", JSON.stringify(userDoc));
