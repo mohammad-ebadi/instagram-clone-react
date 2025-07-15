@@ -1,9 +1,24 @@
 import { Box, Flex, Link } from "@chakra-ui/react";
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { Avatar, AvatarGroup } from "@chakra-ui/react";
+import { auth } from "@/config/firebase";
+import { signOut } from "firebase/auth";
 
 function Sidebar() {
+  const navigate=useNavigate()
+  const handleLogout = async ()=>{
+    
+    try {
+      await signOut(auth)
+      localStorage.removeItem("user-Info");
+      navigate("/auth")
+      
+    } catch (error) {
+      console.log(error)
+      
+    }
+  }
   return (
     <>
       <Box
@@ -141,23 +156,28 @@ function Sidebar() {
             </Avatar.Root>
           </Link>
 
+
+              {/* logout */}
+
+
           <Link
             to="/auth"
             as={RouterLink}
             pl={2}
             display={{ base: "none", md: "block" }}
             _hover={{ bg: "blackAlpha.500", borderRadius: 10 }}
+            onClick={()=>{handleLogout()}}
           >
             <img src="/logout.png"></img>
             <p>Logout</p>
           </Link>
-
           <Link
             to="/auth"
             as={RouterLink}
             pl={2}
             display={{ base: "block", md: "none" }}
             _hover={{ bg: "blackAlpha.500", borderRadius: 10 }}
+            onClick={()=>{handleLogout()}}
           >
             <img src="/logout.png"></img>
           </Link>
