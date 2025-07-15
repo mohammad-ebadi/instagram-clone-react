@@ -161,7 +161,7 @@ function Sidebar() {
 
 
           <Link
-            to="/auth"
+            // to="/auth"
             as={RouterLink}
             pl={2}
             display={{ base: "none", md: "block" }}
@@ -172,7 +172,7 @@ function Sidebar() {
             <p>Logout</p>
           </Link>
           <Link
-            to="/auth"
+            // to="/auth"
             as={RouterLink}
             pl={2}
             display={{ base: "block", md: "none" }}
