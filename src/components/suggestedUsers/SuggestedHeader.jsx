@@ -9,7 +9,6 @@ function SuggestedHeader() {
   const navigate = useNavigate();
   const [authUser, setAuthUser] = useState(null);
 
-  
   useEffect(() => {
     const fetchUserData = async () => {
       const currentUser = auth.currentUser;

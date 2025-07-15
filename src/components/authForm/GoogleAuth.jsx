@@ -1,8 +1,9 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "@/config/firebase";
+import { auth, firestore } from "@/config/firebase";
 import { useNavigate } from "react-router-dom";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 
 function GoogleAuth() {
   const [errorMsg, setErrorMsg] = useState("");
@@ -13,8 +14,25 @@ function GoogleAuth() {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
+      if (result) {
+        const userDoc = {
+          uid: result.user.uid,
+          email: result.user.email,
+          userName: result.user.email.split("@")[0],
+          fullName: result.user.displayName,
+          bio: "",
+          profilePicURL: result.user.photoURL,
+          followers: [],
+          following: [],
+          posts: [],
+          createdAt: serverTimestamp(),
+        };
+        await setDoc(doc(firestore, "users", result.user.uid), userDoc);
+        localStorage.setItem("user-Info", JSON.stringify(userDoc));
+      }
+
       alert(`Signed in successfully as ${user.displayName}`);
-      navigate("/")
+      navigate("/");
     } catch (error) {
       switch (error.code) {
         case "auth/popup-closed-by-user":
