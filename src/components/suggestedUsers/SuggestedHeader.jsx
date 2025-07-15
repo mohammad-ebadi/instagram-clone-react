@@ -2,11 +2,29 @@ import { Avatar, Box, Flex, Link, Text } from "@chakra-ui/react";
 import React from "react";
 import { For, HStack } from "@chakra-ui/react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import { auth } from "@/config/firebase";
+import { auth ,firestore} from "@/config/firebase";
 import { signOut } from "firebase/auth";
+import { doc,getDoc } from "firebase/firestore";
+import { useEffect,useState } from "react";
 function SuggestedHeader() {
 
-  const navigate=useNavigate()
+  const navigate =  useNavigate()
+  const [authUser,setAuthUser]= useState(null)
+
+  useEffect(()=>{
+     const fetchUserData = async()=>{
+      const currentUser= auth.currentUser;
+      if(currentUser){
+        const userDocRef = doc(firestore, "users",currentUser.uid)
+        const userSnap = await getDoc(userDocRef)
+        if(userSnap.exists()){
+          setAuthUser(userSnap.data());
+        }
+      }
+     }
+     fetchUserData()
+  },[])
+   
   const handleLogout = async ()=>{
     
     try {
@@ -24,10 +42,11 @@ function SuggestedHeader() {
       <Flex alignItems={"center"} gap={2}>
         <Avatar.Root size={"sm"}>
           <Avatar.Fallback name="Profile" />
-          <Avatar.Image src="/profile.png" />
+          <Avatar.Image src={authUser.profilePicURL} />
         </Avatar.Root>
+        {/* show user name here */}
         <Text fontSize={12} fontWeight={"bold"}>
-          UserName
+          {authUser.userName}
         </Text>
       </Flex>
       <Link
