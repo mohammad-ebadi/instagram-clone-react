@@ -54,6 +54,7 @@ function Signup() {
           posts: [],
           createdAt: Date.now(),
         };
+        console.log("prepaing to write to firestore")
         await setDoc(doc(firestore, "users", newUser.user.uid), userDoc);
         console.log("saved to firestore")
         localStorage.setItem("user-Info", JSON.stringify(userDoc));
