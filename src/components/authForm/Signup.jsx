@@ -2,7 +2,7 @@ import { Button, Input } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, firestore } from "../../config/firebase.jsx";
-console.log("firestore imported properly")
+console.log("firestore imported properly");
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 
@@ -27,7 +27,6 @@ function Signup() {
       !inputs.fullName ||
       !inputs.userName
     ) {
-      console.log("Please fill all the fields.");
       return;
     }
 
@@ -37,10 +36,7 @@ function Signup() {
         inputs.email,
         inputs.password
       );
-      // if (!newUser && error){
-      //   console.log(error)
-      //   return
-      // }
+
       if (newUser) {
         const userDoc = {
           uid: newUser.user.uid,
@@ -54,9 +50,7 @@ function Signup() {
           posts: [],
           createdAt: Date.now(),
         };
-        console.log("object")
         await setDoc(doc(firestore, "users", newUser.user.uid), userDoc);
-        console.log("saved to firestore")
         localStorage.setItem("user-Info", JSON.stringify(userDoc));
       }
       alert("Your Account Created successfully ✅.");
