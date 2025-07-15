@@ -27,25 +27,21 @@ function Signup() {
       !inputs.fullName ||
       !inputs.userName
     ) {
-      setErrorMsg("Please fill all the fields.")
       console.log("Please fill all the fields.");
       return;
     }
 
     try {
-      console.log("💠 starting sign up")
       const newUser = await createUserWithEmailAndPassword(
         auth,
         inputs.email,
         inputs.password
       );
-      console.log("Firebase auth created :",newUser)
-    
-      if (!newUser || !newUser.user || !newUser.user.uid) 
-      {
-        console.log("new user is invalid ",newUser)
-        return;
-      }
+      // if (!newUser && error){
+      //   console.log(error)
+      //   return
+      // }
+      if (newUser) {
         const userDoc = {
           uid: newUser.user.uid,
           email: inputs.email,
@@ -58,11 +54,11 @@ function Signup() {
           posts: [],
           createdAt: Date.now(),
         };
-        console.log("writing to firestore with data ", userDoc)
+        console.log("object")
         await setDoc(doc(firestore, "users", newUser.user.uid), userDoc);
-        console.log("data written to firestore")
+        console.log("saved to firestore")
         localStorage.setItem("user-Info", JSON.stringify(userDoc));
-      
+      }
       alert("Your Account Created successfully ✅.");
       navigate("/");
     } catch (error) {
