@@ -1,7 +1,7 @@
 import { Button, Input } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, firestore } from "@/config/firebase";
+import { auth, firestore } from "../../config/firebase.jsx";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 
@@ -44,7 +44,6 @@ function Signup() {
         const userDoc = {
           uid: newUser.user.uid,
           email: inputs.email,
-          // password: inputs.password,
           userName: inputs.userName,
           fullName: inputs.fullName,
           bio: "",
@@ -55,6 +54,7 @@ function Signup() {
           createdAt: Date.now(),
         };
         await setDoc(doc(firestore, "users", newUser.user.uid), userDoc);
+        console.log("saved to firestore")
         localStorage.setItem("user-Info", JSON.stringify(userDoc));
       }
       alert("Your Account Created successfully ✅.");
