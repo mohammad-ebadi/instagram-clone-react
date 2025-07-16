@@ -183,7 +183,6 @@ function Sidebar() {
             <img src="/logout.png"></img>
           </Link>
         </Flex>
-        <SuggestedHeader></SuggestedHeader>
       </Box>
     </>
   );
