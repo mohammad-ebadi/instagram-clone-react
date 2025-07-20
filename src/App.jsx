@@ -5,7 +5,7 @@ import AuthPage from "./pages/auth/AuthPage";
 import PageLayout from "./layouts/pageLayout/PageLayout";
 import ProfilePage from "./pages/profilePage/ProfilePage";
 // import WrongRoute from "./pages/404/wrongRoute";
-import { auth } from "./.config/firebase";
+import { auth } from "./config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
