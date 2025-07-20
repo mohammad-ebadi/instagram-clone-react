@@ -58,6 +58,7 @@ function AuthForm() {
       </Box>
     </>
   );
+  
 }
 
 export default AuthForm;
