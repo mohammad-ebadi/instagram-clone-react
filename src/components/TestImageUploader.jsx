@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { supabase } from "../config/supabase";
+import { supabase } from "../.config/supabase";
 
 const ImageUploader = () => {
   const [file, setFile] = useState(null);
