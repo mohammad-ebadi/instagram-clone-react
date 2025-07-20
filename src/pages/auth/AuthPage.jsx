@@ -1,4 +1,6 @@
 import AuthForm from "@/components/authForm/AuthForm";
+import TestImageUploader from "@/components/TestImageUploader";
+import ImageUploader from "@/components/TestImageUploader";
 import { Box, Container, Flex, Image, VStack } from "@chakra-ui/react";
 import React from "react";
 
@@ -21,6 +23,7 @@ function AuthPage() {
           </VStack>
         </Flex>
       </Container>
+      <TestImageUploader></TestImageUploader>
     </Flex>
   );
 }
