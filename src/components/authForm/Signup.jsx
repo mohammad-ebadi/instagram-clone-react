@@ -2,7 +2,6 @@ import { Button, Input } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, firestore } from "../../config/firebase.jsx";
-console.log("firestore imported properly");
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";

@@ -1,4 +1,4 @@
-import { Input, Button } from "@chakra-ui/react";
+import { Input, Button, Tooltip } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/config/firebase";
@@ -55,7 +55,8 @@ function Login() {
           setInputs({ ...inputs, password: e.target.value });
         }}
       ></Input>
-      <Button
+    
+          <Button
         width={"full"}
         colorScheme={"blue"}
         size={"sm"}
@@ -66,6 +67,8 @@ function Login() {
       >
         Login
       </Button>
+
+      
       {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
     </>
   );
