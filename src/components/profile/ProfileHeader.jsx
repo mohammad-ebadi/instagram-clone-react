@@ -42,7 +42,7 @@ function ProfileHeader() {
             <Text as={"span"} fontWeight={"bold"} mr={1}>
               75
             </Text>
-            Follow
+            Following
           </Text>
         </Flex>
         <Flex alignItems={"center"} gap={4}>

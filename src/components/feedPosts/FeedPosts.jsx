@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import FeedPost from './FeedPost'
 
 function FeedPosts() {
-  const [isLoading , setLoading] = useState(true)
+  // const [isLoading , setLoading] = useState(true)
   return (
     <Container maxW={"container.sm"} py={10} px={2}>
       <FeedPost img="/img5.png" username="user1" avatar="/img5.png"></FeedPost>

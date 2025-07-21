@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Flex, GridItem } from "@chakra-ui/react";
+import { Button, Flex, GridItem, Text } from "@chakra-ui/react";
+import { CommentLogo, NotificationsLogo } from "@/assets/constants";
 
 function ProfilePost({ img }) {
   return (
@@ -25,7 +26,16 @@ function ProfilePost({ img }) {
           zIndex={1}
           justifyContent={"center"}
         >
-          <Flex></Flex>
+          <Flex alignItems={"center"} justifyContent={"center"} gap={50}>
+            <Flex>
+              <NotificationsLogo></NotificationsLogo>
+              <Text fontWeight={"bold"} ml={2}>7</Text>
+            </Flex>
+            <Flex>
+              <CommentLogo></CommentLogo>
+              <Text fontWeight={"bold"} ml={2}>9</Text>
+            </Flex>
+          </Flex>
         </Flex>
         <img src={img} alt="" />
       </GridItem>
