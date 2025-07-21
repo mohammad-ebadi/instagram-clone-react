@@ -27,7 +27,7 @@ function ProfilePost({ img }) {
           justifyContent={"center"}
         >
           <Flex alignItems={"center"} justifyContent={"center"} gap={50}>
-            <Flex>
+            <Flex color={"whiteAlpha.100"}>
               <NotificationsLogo></NotificationsLogo>
               <Text fontWeight={"bold"} ml={2}>7</Text>
             </Flex>
