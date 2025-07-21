@@ -27,13 +27,13 @@ function ProfilePost({ img }) {
           justifyContent={"center"}
         >
           <Flex alignItems={"center"} justifyContent={"center"} gap={50}>
-            <Flex color={"whiteAlpha.100"}>
-              <NotificationsLogo></NotificationsLogo>
-              <Text fontWeight={"bold"} ml={2}>7</Text>
+            <Flex >
+              <NotificationsLogo color={"whiteAlpha.700"}></NotificationsLogo>
+              <Text fontWeight={"bold"} ml={2} color={"whiteAlpha.700"}>7</Text>
             </Flex>
             <Flex>
-              <CommentLogo></CommentLogo>
-              <Text fontWeight={"bold"} ml={2}>9</Text>
+              <CommentLogo color={"whiteAlpha.700"}></CommentLogo>
+              <Text fontWeight={"bold"} ml={2} color={"whiteAlpha.700"}>9</Text>
             </Flex>
           </Flex>
         </Flex>
