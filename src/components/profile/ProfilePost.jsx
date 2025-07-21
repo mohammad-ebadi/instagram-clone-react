@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Flex, GridItem, Text } from "@chakra-ui/react";
+import { Button, Flex, GridItem, Image, Text } from "@chakra-ui/react";
 import { CommentLogo, NotificationsLogo } from "@/assets/constants";
 
 function ProfilePost({ img }) {
@@ -37,7 +37,8 @@ function ProfilePost({ img }) {
             </Flex>
           </Flex>
         </Flex>
-        <img src={img} alt="" />
+        {/* <img src={img} alt="" /> */}
+        <Image src={img} alt="Profile post" w={"100%"} h={"100%"} objectFit={"cover"}></Image>
       </GridItem>
     </>
   );
