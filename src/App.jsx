@@ -16,7 +16,6 @@ function App() {
       setUser(currentUser);
     });
 
-    
     return () => unsubscribe();
   }, []);
   return (
