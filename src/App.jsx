@@ -43,7 +43,13 @@ function App() {
             )
           }
         ></Route>
-        {/* <Route path="*" element={<WrongRoute></WrongRoute>}></Route> */}
+
+
+
+        {/* <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/auth" element={<AuthPage></AuthPage>}></Route>
+        <Route path="/:username" element={<ProfilePage></ProfilePage>}></Route> */}
+
       </Routes>
     </PageLayout>
   );

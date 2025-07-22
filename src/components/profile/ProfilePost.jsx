@@ -1,8 +1,33 @@
-import React from "react";
-import { Button, Flex, GridItem, Image, Text } from "@chakra-ui/react";
-import { CommentLogo, NotificationsLogo } from "@/assets/constants";
+import React, { useState } from "react";
+import {
+  Avatar,
+  Box,
+  Button,
+  Flex,
+  GridItem,
+  Image,
+  Input,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
+import { CommentLogo, NotificationsLogo, UnlikeLogo } from "@/assets/constants";
+
+import { CloseButton, Dialog, Portal } from "@chakra-ui/react";
+import Comments from "../comments/Comments.jsx";
+import FeedPostFooter from "../feedPosts/FeedPostFooter.jsx";
 
 function ProfilePost({ img }) {
+  const [liked, setLiked] = useState(false);
+    const [likes, setLikes] = useState(1000);
+    const handleLike = () => {
+      if (liked) {
+        setLiked(false);
+        setLikes(likes - 1);
+      } else {
+        setLiked(true);
+        setLikes(likes + 1);
+      }
+    };
   return (
     <>
       <GridItem
@@ -27,18 +52,100 @@ function ProfilePost({ img }) {
           justifyContent={"center"}
         >
           <Flex alignItems={"center"} justifyContent={"center"} gap={50}>
-            <Flex >
+            <Dialog.Root
+              size="cover"
+              placement="center"
+              motionPreset="slide-in-bottom"
+            >
+              <Dialog.Trigger asChild>
+                <Button variant="outline" size="sm">
+                  Open Post
+                </Button>
+              </Dialog.Trigger>
+              <Portal>
+                <Dialog.Backdrop />
+                <Dialog.Positioner>
+                  <Dialog.Content>
+                    <Dialog.Header>
+                      <Dialog.Title>Post Title</Dialog.Title>
+                      <Dialog.CloseTrigger asChild>
+                        <CloseButton size="sm" />
+                      </Dialog.CloseTrigger>
+                    </Dialog.Header>
+                    <Dialog.Body>
+                      <Flex>
+                        <Box w={"300px"} aspectRatio={1 / 1}>
+                          <Image
+                            src={img}
+                            alt="Profile post"
+                            w={"100%"}
+                            h={"100%"}
+                            borderRadius={5}
+                          ></Image>
+                        </Box>
+                        <Flex>
+                          <Box
+                            pl={10}
+                            ml={10}
+                            display={"flex"}
+                            justifyContent={"center"}
+                          >
+                            <Avatar.Root size={"sm"}>
+                              <Avatar.Fallback name="Profile" />
+                              <Avatar.Image src="/profile.png" />
+                            </Avatar.Root>
+                            <Box pl={5} divideX="2px">"username"</Box>
+                            <hr /><br />
+                            <VStack p={5} m={5} >
+                              <Comments createdAt="1d ago" userName="user4" profilePic="/img4.png" text="Text for test 4"></Comments>
+                              <Comments createdAt="1d ago" userName="user5" profilePic="/img5.png" text="Text for test 5"></Comments>
+                              <Comments createdAt="1d ago" userName="user6" profilePic="/img6.png" text="Text for test 6"></Comments>
+
+                             
+                            </VStack>
+                            
+                          </Box>
+                          <hr />
+                        </Flex>
+                      </Flex>
+                      <Flex
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        maxW={"300px"}
+                      >
+
+
+                        <FeedPostFooter></FeedPostFooter>
+                      </Flex>
+                    </Dialog.Body>
+                  </Dialog.Content>
+                </Dialog.Positioner>
+              </Portal>
+            </Dialog.Root>
+            <Flex>
               <NotificationsLogo color={"whiteAlpha.700"}></NotificationsLogo>
-              <Text fontWeight={"bold"} ml={2} color={"whiteAlpha.700"}>7</Text>
+              <Text fontWeight={"bold"} ml={2} color={"whiteAlpha.700"}>
+                7
+              </Text>
             </Flex>
             <Flex>
               <CommentLogo color={"whiteAlpha.700"}></CommentLogo>
-              <Text fontWeight={"bold"} ml={2} color={"whiteAlpha.700"}>9</Text>
+              <Text fontWeight={"bold"} ml={2} color={"whiteAlpha.700"}>
+                9
+              </Text>
+              <br />
             </Flex>
           </Flex>
         </Flex>
+
         {/* <img src={img} alt="" /> */}
-        <Image src={img} alt="Profile post" w={"100%"} h={"100%"} objectFit={"cover"}></Image>
+        <Image
+          src={img}
+          alt="Profile post"
+          w={"100%"}
+          h={"100%"}
+          objectFit={"cover"}
+        ></Image>
       </GridItem>
     </>
   );
