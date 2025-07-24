@@ -3,7 +3,14 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, firestore } from "../../config/firebase.jsx";
 import { useNavigate } from "react-router-dom";
-import { doc, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDocs,
+  query,
+  setDoc,
+  where,
+} from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 
 function Signup() {
@@ -27,6 +34,14 @@ function Signup() {
       !inputs.fullName ||
       !inputs.userName
     ) {
+      return;
+    }
+
+    const usersRef = collection(firestore, "users");
+    const q = query(usersRef, where("userName", "==", inputs.userName));
+    const querySnapshot = await getDocs(q);
+    if (!querySnapshot.empty) {
+      alert("This username already taken ###");
       return;
     }
 
