@@ -22,7 +22,7 @@ function AuthPage() {
           </VStack>
         </Flex>
       </Container>
-      {/* <TestImageUploader></TestImageUploader> */}
+      <TestImageUploader></TestImageUploader>
     </Flex>
   );
 }
