@@ -1,7 +1,9 @@
 import { Flex, Avatar, VStack, Text, Button } from "@chakra-ui/react";
 import React from "react";
+import useAuthStore from "../../store/useAuthStore.js";
 
 function ProfileHeader() {
+  const {user} = useAuthStore()
   return (
     <Flex gap={{ base: 4, sm: 10 }} direction={{ base: "column", sm: "row" }}>
       <Avatar.Root size={"sm"}>
@@ -16,7 +18,7 @@ function ProfileHeader() {
           alignItems={"center"}
           w={"full"}
         >
-          <Text fontSize={{ base: "sm", md: "lg" }}>Username</Text>
+          <Text fontSize={{ base: "sm", md: "lg" }}>{user?.userName}</Text>
           <Flex gap={4} justifyContent={"center"} alignItems={"center"}>
             <Button h={9} _hover={{ color: "blue.500" }}>
               Edit Profile
