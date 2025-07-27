@@ -12,6 +12,7 @@ function AuthPage() {
             <Image src="/auth2.png" h={650} w={650} alt="Phone image"></Image>
           </Box>
 
+
           <VStack align={"stretch"}>
             <AuthForm></AuthForm>
             <Box textAlign={"center"}>Get the App</Box>
