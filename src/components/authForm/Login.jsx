@@ -1,23 +1,34 @@
 import { Input, Button, Tooltip } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@/config/firebase";
+import { auth, firestore } from "@/config/firebase";
 import { useNavigate } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import useAuthStore from "@/store/useAuthStore";
 
 function Login() {
-  const navigate = useNavigate("");
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
   const [errorMsg, setErrorMsg] = useState("");
+  const loginUser = useAuthStore((state)=> state.login);
 
   const handleSignIn = async () => {
     setErrorMsg("");
+  
     try {
-      await signInWithEmailAndPassword(auth, inputs.email, inputs.password);
-      alert("Your Signed In successfully ✅.");
+      const userCred = await signInWithEmailAndPassword(auth, inputs.email, inputs.password);
+      if(userCred){
+          alert("Your Signed In successfully ✅.");
+      const docRef = doc(firestore , "users",userCred.user.uid)
+      const docSnap = await getDoc(docRef)
+      localStorage.setItem("user-Info" , JSON.stringify(docSnap.data()))
+      loginUser(docSnap.data())
       navigate("/");
+      }
+      
     } catch (error) {
       // alert(error.message);
       switch (error.code) {

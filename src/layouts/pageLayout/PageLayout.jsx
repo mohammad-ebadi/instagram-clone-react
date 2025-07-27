@@ -7,7 +7,7 @@ import { auth } from "@/config/firebase";
 
 function PageLayout({ children }) {
   const { pathname } = useLocation();
-const [user, loading, error] = useAuthState(auth); 
+const [user] = useAuthState(auth); 
  const canRenderSidebar = pathname !== "/auth" && user;
   return ( 
     <Flex>
