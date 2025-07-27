@@ -2,9 +2,8 @@ import { Box, Flex, Link } from "@chakra-ui/react";
 import React from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { Avatar } from "@chakra-ui/react";
-import { auth } from "@/config/firebase";
+import { auth } from "../../config/firebase.jsx";
 import { signOut } from "firebase/auth";
-import SuggestedHeader from "../suggestedUsers/SuggestedHeader";
 
 function Sidebar() {
   const navigate=useNavigate()

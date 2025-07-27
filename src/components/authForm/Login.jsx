@@ -1,10 +1,10 @@
 import { Input, Button, Tooltip } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth, firestore } from "@/config/firebase";
+import { auth, firestore } from "../../config/firebase.jsx";
 import { useNavigate } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
-import useAuthStore from "@/store/useAuthStore";
+import useAuthStore from "../../store/useAuthStore.js";
 
 function Login() {
   const navigate = useNavigate();

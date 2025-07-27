@@ -1,7 +1,7 @@
 import { Avatar, Box, Flex, Link, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import { auth, firestore } from "@/config/firebase";
+import { auth, firestore } from "../../config/firebase.jsx";
 import { signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";

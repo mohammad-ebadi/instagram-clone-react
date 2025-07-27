@@ -6,11 +6,11 @@ import {
   Flex,
   GridItem,
   Image,
-  Input,
+  
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { CommentLogo, NotificationsLogo, UnlikeLogo } from "@/assets/constants";
+import { CommentLogo, NotificationsLogo } from "../../assets/constants.jsx";
 
 import { CloseButton, Dialog, Portal } from "@chakra-ui/react";
 import Comments from "../comments/Comments.jsx";

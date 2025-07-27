@@ -1,6 +1,6 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import { Avatar, For, HStack } from "@chakra-ui/react";
+import { Avatar } from "@chakra-ui/react";
 
 function FeedPostHeader({username,avatar}) {
   return (

@@ -1,6 +1,6 @@
 import { Container } from '@chakra-ui/react'
 import React from 'react'
-import FeedPost from './FeedPost'
+import FeedPost from './FeedPost.jsx'
 
 function FeedPosts() {
   // const [isLoading , setLoading] = useState(true)

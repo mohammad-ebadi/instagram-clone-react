@@ -2,7 +2,7 @@ import {
   CreatePostLogo,
   NotificationsLogo,
   ReelsLogo,
-} from "@/assets/constants.jsx";
+} from "../../assets/constants.jsx";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 

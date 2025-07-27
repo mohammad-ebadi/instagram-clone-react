@@ -1,5 +1,5 @@
-import AuthForm from "@/components/authForm/AuthForm";
-import TestImageUploader from "@/components/TestImageUploader";
+import AuthForm from "../../components/AuthForm/AuthForm.jsx";
+// import TestImageUploader from "@/components/TestImageUploader.jsx";
 import { Box, Container, Flex, Image, VStack } from "@chakra-ui/react";
 import React from "react";
 

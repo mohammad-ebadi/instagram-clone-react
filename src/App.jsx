@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Home from "./pages/home/Home";
-import AuthPage from "./pages/auth/AuthPage";
-import PageLayout from "./layouts/pageLayout/PageLayout";
-import ProfilePage from "./pages/profilePage/ProfilePage";
-// import WrongRoute from "./pages/404/wrongRoute";
-import { auth } from "./config/firebase";
+import Home from "./pages/home/Home.jsx";
+import AuthPage from "./pages/auth/AuthPage.jsx";
+import PageLayout from "./layouts/pageLayout/PageLayout.jsx";
+import ProfilePage from "./pages/profilePage/ProfilePage.jsx";
+import { auth } from "./config/firebase.jsx";
 import { onAuthStateChanged } from "firebase/auth";
 
 function App() {

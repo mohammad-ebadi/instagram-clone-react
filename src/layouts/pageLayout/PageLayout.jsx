@@ -1,9 +1,9 @@
-import Sidebar from "@/components/sidebar/Sidebar";
+import Sidebar from "../../components/Sidebar/Sidebar.jsx";
 import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from "@/config/firebase";
+import { auth } from "../../config/firebase.jsx";
 
 function PageLayout({ children }) {
   const { pathname } = useLocation();
