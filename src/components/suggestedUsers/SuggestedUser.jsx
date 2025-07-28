@@ -37,12 +37,12 @@
 // export default SuggestedUser;
 
 
-import { HStack, Avatar, VStack, Text } from "@chakra-ui/react";
+import {  Avatar, VStack, Text, Flex } from "@chakra-ui/react";
 
 function SuggestedUser({ userName, avatar, followersCount, fullName }) {
   return (
-    <HStack w="full" justify="space-between">
-      <HStack>
+    <Flex w="full" justify="space-between">
+      <Flex>
         {/* <Avatar size="sm" name={fullName} src={avatar} /> */}
         <Avatar.Root size={"sm"}>
             <Avatar.Fallback name={fullName} />
@@ -56,8 +56,8 @@ function SuggestedUser({ userName, avatar, followersCount, fullName }) {
             {followersCount} followers
           </Text>
         </VStack>
-      </HStack>
-    </HStack>
+      </Flex>
+    </Flex>
   );
 }
 

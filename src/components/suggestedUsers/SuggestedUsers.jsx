@@ -102,7 +102,7 @@ function SuggestedUsers() {
       )}
 
       <Box fontSize={12} color="gray.500" mt={5}>
-        Built by Shaktik
+        Built by Mohammad Ebadi
       </Box>
     </VStack>
   );
