@@ -1,7 +1,7 @@
 import { Button, CloseButton, Dialog, Input, Portal } from "@chakra-ui/react";
-import SuggestedUser from "../suggestedUsers/SuggestedUser";
 import { useState } from "react";
 import useSearchUser from "../../hooks/useSearchUser.js";
+import SearchResult from "./SearchResult";
 
 const Search = () => {
   const {getUserProfile, user , isLoading} = useSearchUser();
