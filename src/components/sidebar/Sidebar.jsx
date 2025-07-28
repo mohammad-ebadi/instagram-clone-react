@@ -4,12 +4,9 @@ import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { Avatar } from "@chakra-ui/react";
 import { auth } from "../../config/firebase.jsx";
 import { signOut } from "firebase/auth";
-import useAuthStore from "@/store/useAuthStore.js";
 
 function Sidebar() {
   const navigate=useNavigate()
-  const {user} = useAuthStore()
-  
   const handleLogout = async ()=>{
     
     try {
@@ -141,8 +138,8 @@ function Sidebar() {
             _hover={{ bg: "blackAlpha.500", borderRadius: 10 }}
           >
             <Avatar.Root>
-              <Avatar.Fallback name={user?.userName} />
-              <Avatar.Image src={user.profilePicURL } />
+              <Avatar.Fallback name="Mohammad Ebadi" />
+              <Avatar.Image src="/profile.png" />
             </Avatar.Root>
             <p>Profile</p>
           </Link>
@@ -154,8 +151,8 @@ function Sidebar() {
             _hover={{ bg: "blackAlpha.500", borderRadius: 10 }}
           >
             <Avatar.Root>
-              <Avatar.Fallback name={user?.userName} />
-              <Avatar.Image src={user.profilePicURL } />
+              <Avatar.Fallback name="Mohammad Ebadi" />
+              <Avatar.Image src="/profile.png" />
             </Avatar.Root>
           </Link>
 
