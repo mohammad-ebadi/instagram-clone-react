@@ -12,9 +12,11 @@ import {
   where,
 } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
+import useAuthStore from "@/store/useAuthStore.js";
 
 function Signup() {
   const navigate = useNavigate("");
+  const {login}= useAuthStore()
 
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -68,6 +70,7 @@ function Signup() {
         await setDoc(doc(firestore, "users", newUser.user.uid), userDoc);
         localStorage.setItem("user-Info", JSON.stringify(userDoc));
         alert("Your Account Created successfully ✅.");
+        login(userDoc)
       }
       
       navigate("/");
