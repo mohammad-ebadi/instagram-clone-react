@@ -7,7 +7,7 @@ function ProfileHeader() {
   console.log(user)
   return (
     <Flex gap={{ base: 4, sm: 10 }} direction={{ base: "column", sm: "row" }}>
-      <Avatar.Root size={"sm"}>
+      <Avatar.Root size={"2xl"}>
         <Avatar.Fallback name={user?.userName} />
         <Avatar.Image src="/img5.png" />
       </Avatar.Root>
