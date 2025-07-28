@@ -59,24 +59,25 @@ function SuggestedUsers() {
   const [users, setUsers] = useState([]);
   const currentUser = getAuth().currentUser;
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(firestore, "users"));
-        const usersData = querySnapshot.docs
-          .map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          }))
-          .filter((user) => user.uid !== currentUser?.uid); // حذف کاربر فعلی
-        setUsers(usersData);
-      } catch (error) {
-        console.error("خطا در دریافت کاربران:", error);
-      }
-    };
+useEffect(() => {
+  const fetchUsers = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(firestore, "users"));
+      const usersData = querySnapshot.docs
+        .map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+        .filter((user) => user.uid !== currentUser?.uid)
+        .slice(0, 10); // محدود به ۱۰ کاربر
+      setUsers(usersData);
+    } catch (error) {
+      console.error("خطا در دریافت کاربران:", error);
+    }
+  };
 
-    fetchUsers();
-  }, [currentUser]);
+  fetchUsers();
+}, [currentUser]);
 
   return (
     <VStack w="full" align="start" spacing={4} px={4} py={4}>
