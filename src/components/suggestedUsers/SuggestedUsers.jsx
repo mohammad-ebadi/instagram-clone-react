@@ -52,7 +52,7 @@ import { VStack, Box, Text } from "@chakra-ui/react";
 import SuggestedUser from "./SuggestedUser.jsx";
 import { collection, getDocs } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import { db } from "../../config/firebase.jsx";
+import { firestore } from "../../config/firebase.jsx";
 
 function SuggestedUsers() {
   const [users, setUsers] = useState([]);
@@ -61,7 +61,7 @@ function SuggestedUsers() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "users"));
+        const querySnapshot = await getDocs(collection(firestore, "users"));
         const usersData = querySnapshot.docs
           .map((doc) => ({
             id: doc.id,
