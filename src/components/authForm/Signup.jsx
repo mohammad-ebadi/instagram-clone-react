@@ -67,8 +67,9 @@ function Signup() {
         };
         await setDoc(doc(firestore, "users", newUser.user.uid), userDoc);
         localStorage.setItem("user-Info", JSON.stringify(userDoc));
+        alert("Your Account Created successfully ✅.");
       }
-      alert("Your Account Created successfully ✅.");
+      
       navigate("/");
     } catch (error) {
       switch (error.code) {

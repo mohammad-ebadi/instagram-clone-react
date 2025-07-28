@@ -29,9 +29,10 @@ function GoogleAuth() {
         };
         await setDoc(doc(firestore, "users", result.user.uid), userDoc);
         localStorage.setItem("user-Info", JSON.stringify(userDoc));
+        alert(`Signed in successfully as ${user.displayName}`);
       }
 
-      alert(`Signed in successfully as ${user.displayName}`);
+      
       navigate("/");
     } catch (error) {
       switch (error.code) {
