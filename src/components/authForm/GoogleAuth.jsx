@@ -4,10 +4,13 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth, firestore } from "../../config/firebase.jsx";
 import { useNavigate } from "react-router-dom";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import useAuthStore from "../../store/useAuthStore.js";
 
 function GoogleAuth() {
   const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate("");
+    const {login}= useAuthStore()
+  
 
   const handleGoogle = async () => {
     const provider = new GoogleAuthProvider();
@@ -30,6 +33,7 @@ function GoogleAuth() {
         await setDoc(doc(firestore, "users", result.user.uid), userDoc);
         localStorage.setItem("user-Info", JSON.stringify(userDoc));
         alert(`Signed in successfully as ${user.displayName}`);
+        login(userDoc)
       }
 
       
