@@ -8,8 +8,8 @@ function ProfileHeader() {
   return (
     <Flex gap={{ base: 4, sm: 10 }} direction={{ base: "column", sm: "row" }}>
       <Avatar.Root size={"sm"}>
-        <Avatar.Fallback name="Profile" />
-        <Avatar.Image src={"/profile.png"} />
+        <Avatar.Fallback name={user?.profilePicURL } />
+        <Avatar.Image src={user} />
       </Avatar.Root>
       <VStack alignItems={"start"} gap={2} mx={"auto"} flex={1}>
         <Flex
@@ -29,34 +29,33 @@ function ProfileHeader() {
         <Flex alignItems={"center"} gap={{ base: 2, sm: 4 }}>
           <Text fontSize={{ base: "xs", md: "sm" }}>
             <Text as={"span"} fontWeight={"bold"} mr={1}>
-              245
+              {user?.posts}
             </Text>
             Posts
           </Text>
 
           <Text fontSize={{ base: "xs", md: "sm" }}>
             <Text as={"span"} fontWeight={"bold"} mr={1}>
-              34
+              {user?.followers}
             </Text>
             Followers
           </Text>
 
           <Text fontSize={{ base: "xs", md: "sm" }}>
             <Text as={"span"} fontWeight={"bold"} mr={1}>
-              75
+               {user?.following}
             </Text>
             Following
           </Text>
         </Flex>
         <Flex alignItems={"center"} gap={4}>
           <Text fontSize={"sm"} fontWeight={"bold"}>
-            test lorem ipsoooom
+           {user?.fullName}
           </Text>
         </Flex>
 
         <Text fontSize={"sm"}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure,
-          aliquam?
+          {user?.bio }
         </Text>
       </VStack>
     </Flex>
