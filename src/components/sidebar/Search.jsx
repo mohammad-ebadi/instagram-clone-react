@@ -31,7 +31,7 @@ const Search = () => {
               <Input placeholder="Enter a username..." onChange={(e)=>{setUsername(e.target.value)}}></Input><br /><br />
               {/* if username is exist in the firestore then show suggestedUser component */}
               {isLoading && <p>Loading...</p>}
-              {user ? (username.length > 0 && <p>User Not Found</p>) : (<SearchResult user={user}></SearchResult>)}
+              {user ? (<SearchResult user={user}></SearchResult>) : (username.length > 0 && <p>User Not Found</p>)}
               
             </Dialog.Body>
             <Dialog.Footer>
