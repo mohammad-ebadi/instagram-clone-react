@@ -4,6 +4,7 @@ import useAuthStore from "../../store/useAuthStore.js";
 
 function ProfileHeader() {
   const {user} = useAuthStore()
+  console.log(user)
   return (
     <Flex gap={{ base: 4, sm: 10 }} direction={{ base: "column", sm: "row" }}>
       <Avatar.Root size={"sm"}>
