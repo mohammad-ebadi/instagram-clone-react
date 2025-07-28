@@ -1,14 +1,23 @@
-// import {  Avatar, VStack, Text, Flex } from "@chakra-ui/react";
 
-// function SuggestedUser({ userName, avatar, followersCount, fullName }) {
+
+// import { Avatar, VStack, Text, Flex, Button } from "@chakra-ui/react";
+
+// function SuggestedUser({
+//   userName,
+//   avatar,
+//   followersCount,
+//   fullName,
+//   isFollowing,
+//   onToggleFollow,
+// }) {
 //   return (
-//     <Flex w="full" justify="space-between">
-//       <Flex>
+//     <Flex w="full" justify="space-between" align="center" py={2}>
+//       <Flex align="center" gap={3}>
 //         {/* <Avatar size="sm" name={fullName} src={avatar} /> */}
 //         <Avatar.Root size={"sm"}>
-//             <Avatar.Fallback name={fullName} />
-//             <Avatar.Image src={avatar} />
-//           </Avatar.Root>
+//           <Avatar.Fallback name={fullName} />
+//           <Avatar.Image src={avatar} />
+//         </Avatar.Root>
 //         <VStack spacing={0} align="start">
 //           <Text fontSize="sm" fontWeight="bold">
 //             {userName}
@@ -18,30 +27,32 @@
 //           </Text>
 //         </VStack>
 //       </Flex>
+//       <Button
+//         size="sm"
+//         colorScheme={isFollowing ? "gray" : "blue"}
+//         onClick={onToggleFollow}
+//       >
+//         {isFollowing ? "Unfollow" : "Follow"}
+//       </Button>
 //     </Flex>
 //   );
 // }
 
 // export default SuggestedUser;
 
+
 import { Avatar, VStack, Text, Flex, Button } from "@chakra-ui/react";
 
-function SuggestedUser({
-  userName,
-  avatar,
-  followersCount,
-  fullName,
-  isFollowing,
-  onToggleFollow,
-}) {
+function SuggestedUser({ userName, avatar, followersCount, fullName, isFollowing, onToggleFollow }) {
   return (
     <Flex w="full" justify="space-between" align="center" py={2}>
       <Flex align="center" gap={3}>
-        {/* <Avatar size="sm" name={fullName} src={avatar} /> */}
+        {/* Avatar */}
         <Avatar.Root size={"sm"}>
           <Avatar.Fallback name={fullName} />
           <Avatar.Image src={avatar} />
         </Avatar.Root>
+
         <VStack spacing={0} align="start">
           <Text fontSize="sm" fontWeight="bold">
             {userName}
@@ -51,11 +62,8 @@ function SuggestedUser({
           </Text>
         </VStack>
       </Flex>
-      <Button
-        size="sm"
-        colorScheme={isFollowing ? "gray" : "blue"}
-        onClick={onToggleFollow}
-      >
+
+      <Button size="sm" colorScheme={isFollowing ? "gray" : "blue"} onClick={onToggleFollow}>
         {isFollowing ? "Unfollow" : "Follow"}
       </Button>
     </Flex>
