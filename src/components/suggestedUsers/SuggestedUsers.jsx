@@ -53,6 +53,7 @@ import SuggestedUser from "./SuggestedUser.jsx";
 import { collection, getDocs } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { firestore } from "../../config/firebase.jsx";
+import SuggestedHeader from "./SuggestedHeader.jsx";
 
 function SuggestedUsers() {
   const [users, setUsers] = useState([]);
@@ -79,6 +80,7 @@ function SuggestedUsers() {
 
   return (
     <VStack w="full" align="start" spacing={4} px={4} py={4}>
+      <SuggestedHeader></SuggestedHeader>
       <Text fontSize="sm" fontWeight="bold" color="gray.500">
         Suggested Users
       </Text>
