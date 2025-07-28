@@ -9,7 +9,7 @@ function ProfileHeader() {
     <Flex gap={{ base: 4, sm: 10 }} direction={{ base: "column", sm: "row" }}>
       <Avatar.Root size={"sm"}>
         <Avatar.Fallback name={user?.userName} />
-        <Avatar.Image src={user?.profilePicURL} />
+        <Avatar.Image src="/img5.png" />
       </Avatar.Root>
       <VStack alignItems={"start"} gap={2} mx={"auto"} flex={1}>
         <Flex
