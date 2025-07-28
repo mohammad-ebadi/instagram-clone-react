@@ -1,31 +1,15 @@
 import { Flex, Avatar, VStack, Text, Button } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useAuthStore from "../../store/useAuthStore.js";
-import { auth, firestore } from "../../config/firebase.jsx";
-import { doc, getDoc } from "firebase/firestore";
 
 function ProfileHeader() {
-  const [authUser, setAuthUser] = useState(null);
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const currentUser = auth.currentUser;
-      if (currentUser) {
-        const userDocRef = doc(firestore, "users", currentUser.uid);
-        const userSnap = await getDoc(userDocRef);
-        if (userSnap.exists()) {
-          setAuthUser(userSnap.data());
-        }
-      }
-    };
-    fetchUserData();
-  }, []);
   const {user} = useAuthStore()
   console.log(user)
   return (
     <Flex gap={{ base: 4, sm: 10 }} direction={{ base: "column", sm: "row" }}>
       <Avatar.Root size={"2xl"}>
         <Avatar.Fallback name={user?.userName} />
-        <Avatar.Image src={authUser.profilePicURL } />
+        <Avatar.Image src={user.profilePicURL } />
       </Avatar.Root>
       <VStack alignItems={"start"} gap={2} mx={"auto"} flex={1}>
         <Flex
