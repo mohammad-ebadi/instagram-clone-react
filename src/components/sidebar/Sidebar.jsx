@@ -7,20 +7,17 @@ import { signOut } from "firebase/auth";
 import useAuthStore from "../../store/useAuthStore.js";
 
 function Sidebar() {
-  const navigate=useNavigate()
-  const {user} = useAuthStore()
-  const handleLogout = async ()=>{
-    
+  const navigate = useNavigate();
+  const { user } = useAuthStore();
+  const handleLogout = async () => {
     try {
-      await signOut(auth)
+      await signOut(auth);
       localStorage.removeItem("user-Info");
-      navigate("/auth")
-      
+      navigate("/auth");
     } catch (error) {
-      console.log(error)
-      
+      console.log(error);
     }
-  }
+  };
   return (
     <>
       <Box
@@ -72,6 +69,7 @@ function Sidebar() {
             <img src="/home.png"></img>
           </Link>
 
+          {/* search */}
           <Link
             to="/"
             as={RouterLink}
@@ -141,7 +139,7 @@ function Sidebar() {
           >
             <Avatar.Root>
               <Avatar.Fallback name={user?.userName} />
-              <Avatar.Image src={user.profilePicURL } />
+              <Avatar.Image src={user.profilePicURL} />
             </Avatar.Root>
             <p>Profile</p>
           </Link>
@@ -154,13 +152,11 @@ function Sidebar() {
           >
             <Avatar.Root>
               <Avatar.Fallback name={user?.userName} />
-              <Avatar.Image src={user.profilePicURL } />
+              <Avatar.Image src={user.profilePicURL} />
             </Avatar.Root>
           </Link>
 
-
-              {/* logout */}
-
+          {/* logout */}
 
           <Link
             // to="/auth"
@@ -168,7 +164,9 @@ function Sidebar() {
             pl={2}
             display={{ base: "none", md: "block" }}
             _hover={{ bg: "blackAlpha.500", borderRadius: 10 }}
-            onClick={()=>{handleLogout()}}
+            onClick={() => {
+              handleLogout();
+            }}
           >
             <img src="/logout.png"></img>
             <p>Logout</p>
@@ -179,7 +177,9 @@ function Sidebar() {
             pl={2}
             display={{ base: "block", md: "none" }}
             _hover={{ bg: "blackAlpha.500", borderRadius: 10 }}
-            onClick={()=>{handleLogout()}}
+            onClick={() => {
+              handleLogout();
+            }}
           >
             <img src="/logout.png"></img>
           </Link>
