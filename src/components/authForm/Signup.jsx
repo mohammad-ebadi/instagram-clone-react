@@ -12,7 +12,7 @@ import {
   where,
 } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
-import useAuthStore from "@/store/useAuthStore.js";
+import useAuthStore from "../../store/useAuthStore.js";
 
 function Signup() {
   const navigate = useNavigate("");
