@@ -46,8 +46,9 @@
 
 // export default SuggestedUsers;
 
+// 
 import React, { useEffect, useState } from "react";
-import { VStack, Box, Text, Spinner } from "@chakra-ui/react";
+import { VStack, Box, Text } from "@chakra-ui/react";
 import SuggestedUser from "./SuggestedUser.jsx";
 import { collection, getDocs } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
@@ -55,8 +56,6 @@ import { db } from "../../config/firebase.jsx";
 
 function SuggestedUsers() {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-
   const currentUser = getAuth().currentUser;
 
   useEffect(() => {
@@ -69,12 +68,9 @@ function SuggestedUsers() {
             ...doc.data(),
           }))
           .filter((user) => user.uid !== currentUser?.uid); // حذف کاربر فعلی
-
         setUsers(usersData);
       } catch (error) {
         console.error("خطا در دریافت کاربران:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -86,21 +82,15 @@ function SuggestedUsers() {
       <Text fontSize="sm" fontWeight="bold" color="gray.500">
         Suggested Users
       </Text>
-
-      {loading ? (
-        <Spinner size="sm" color="gray.500" />
-      ) : (
-        users.map((user) => (
-          <SuggestedUser
-            key={user.uid}
-            userName={user.userName}
-            avatar={user.profilePicURL}
-            followersCount={user.followers.length}
-            fullName={user.fullName}
-          />
-        ))
-      )}
-
+      {users.map((user) => (
+        <SuggestedUser
+          key={user.uid}
+          userName={user.userName}
+          avatar={user.profilePicURL}
+          followersCount={user.followers.length}
+          fullName={user.fullName}
+        />
+      ))}
       <Box fontSize={12} color="gray.500" mt={5}>
         Built by Mohammad Ebadi
       </Box>
