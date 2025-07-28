@@ -43,7 +43,11 @@ function SuggestedUser({ userName, avatar, followersCount, fullName }) {
   return (
     <HStack w="full" justify="space-between">
       <HStack>
-        <Avatar size="sm" name={fullName} src={avatar} />
+        {/* <Avatar size="sm" name={fullName} src={avatar} /> */}
+        <Avatar.Root size={"sm"}>
+            <Avatar.Fallback name={fullName} />
+            <Avatar.Image src={avatar} />
+          </Avatar.Root>
         <VStack spacing={0} align="start">
           <Text fontSize="sm" fontWeight="bold">
             {userName}
