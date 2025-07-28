@@ -5,12 +5,13 @@ function SuggestedUser({ username, avatar, followers }) {
   const [isFollow, setIsFollow] = useState(false);
   return (
     <Flex justifyContent={"space-between"} alignItems={"center"} w={"full"}>
-      <Flex alignItems={"center"} gap={4}>
+      <Flex alignItems={"center"} gap={4} pr={5}>
         <Avatar.Root size={"sm"}>
           <Avatar.Fallback name={username} />
           <Avatar.Image src={avatar} />
         </Avatar.Root>
-
+      </Flex>
+      <Flex>
         <VStack gap={2} alignItems={"flex-start"}>
           <Box fontSize={12} fontWeight={"bold"}>
             {username}
