@@ -1,6 +1,16 @@
 import { Button, CloseButton, Dialog, Input, Portal } from "@chakra-ui/react";
+import SuggestedUser from "../suggestedUsers/SuggestedUser";
+import { useState } from "react";
+import useSearchUser from "../../hooks/useSearchUser.js";
 
 const Search = () => {
+  const {getUserProfile, user , isLoading} = useSearchUser();
+  const [ username , setUsername] = useState("")
+
+  const handleSearchUsername = async () => {
+  await getUserProfile(username);
+};
+
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
@@ -17,17 +27,18 @@ const Search = () => {
               <Dialog.Title>Search</Dialog.Title>
             </Dialog.Header>
             <Dialog.Body>
-              {/* <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p> */}
-              <Input placeholder="Enter a username..."></Input>
+              
+              <Input placeholder="Enter a username..." onChange={(e)=>{setUsername(e.target.value)}}></Input><br /><br />
+              {/* if username is exist in the firestore then show suggestedUser component */}
+              {isLoading && <p>Loading...</p>}
+              {user ? (<SuggestedUser user={user}></SuggestedUser>) : (username.length > 0 && <p>User Not Found</p>)}
+              
             </Dialog.Body>
             <Dialog.Footer>
               <Dialog.ActionTrigger asChild>
                 <Button variant="outline">Cancel</Button>
               </Dialog.ActionTrigger>
-              <Button>Search</Button>
+              <Button onClick={()=>{handleSearchUsername()}}>Search</Button>
             </Dialog.Footer>
             <Dialog.CloseTrigger asChild>
               <CloseButton size="sm" />
