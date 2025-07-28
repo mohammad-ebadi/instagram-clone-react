@@ -15,10 +15,13 @@ const SearchResult = ({ user }) => {
       _hover={{ bg: "gray.700" }}
     >
       <Flex align="center" mr={5}>
-        <Avatar.Root size={"sm"}>
-          <Avatar.Fallback name={user.fullName} />
-          <Avatar.Image src={user.profilePicURL} />
-        </Avatar.Root>
+        <Box mr={5} p={5}>
+          <Avatar.Root size={"sm"}>
+            <Avatar.Fallback name={user.fullName} />
+            <Avatar.Image src={user.profilePicURL} />
+          </Avatar.Root>
+        </Box>
+
         <Box>
           <Text fontWeight="bold" color="white">
             {user.userName}
