@@ -5,7 +5,7 @@ const Search = () => {
     <Dialog.Root>
       <Dialog.Trigger asChild>
         <Button variant="outline" size="sm">
-          Search
+          Search 🔎
         </Button>
       </Dialog.Trigger>
       <Portal>
