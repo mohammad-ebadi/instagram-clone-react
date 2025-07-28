@@ -1,11 +1,12 @@
-import { Button, CloseButton, Dialog, Input, Portal } from "@chakra-ui/react"
+import { Button, CloseButton, Dialog, Input, Portal } from "@chakra-ui/react";
 
 const Search = () => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <Button variant="outline" size="sm">
-          Search 🔎
+        <Button variant="outline" size="sm" border={"none"}>
+          <img src="/search.png"></img>
+          Search
         </Button>
       </Dialog.Trigger>
       <Portal>
@@ -35,7 +36,7 @@ const Search = () => {
         </Dialog.Positioner>
       </Portal>
     </Dialog.Root>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;
