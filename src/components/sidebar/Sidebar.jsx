@@ -5,6 +5,7 @@ import { Avatar } from "@chakra-ui/react";
 import { auth } from "../../config/firebase.jsx";
 import { signOut } from "firebase/auth";
 import useAuthStore from "../../store/useAuthStore.js";
+import Search from "./Search.jsx";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -71,7 +72,8 @@ function Sidebar() {
 
           {/* search */}
           <Link
-            to="/"
+            // to="/"
+            navigate={<Search></Search>}
             as={RouterLink}
             pl={2}
             display={{ base: "none", md: "block" }}
@@ -81,7 +83,8 @@ function Sidebar() {
             <p>Search</p>
           </Link>
           <Link
-            to="/"
+            // to="/"
+            navigate={<Search></Search>}
             as={RouterLink}
             pl={2}
             display={{ base: "block", md: "none" }}
