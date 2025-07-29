@@ -16,7 +16,7 @@ const Search = () => {
       <Dialog.Trigger asChild>
         <Button variant="outline" size="sm" border={"none"}>
           <img src="/search.png"></img>
-          Search
+          
         </Button>
       </Dialog.Trigger>
       <Portal>
