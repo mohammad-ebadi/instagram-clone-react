@@ -6,7 +6,6 @@ import { auth } from "../../config/firebase.jsx";
 import { signOut } from "firebase/auth";
 import useAuthStore from "../../store/useAuthStore.js";
 import Search from "./Search.jsx";
-import SuggestedUsers from "../suggestedUsers/SuggestedUsers.jsx";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -187,8 +186,6 @@ function Sidebar() {
             }}
           >
             <img src="/logout.png"></img>
-            {/* suggeste users */}
-            <SuggestedUsers></SuggestedUsers>
           </Link>
         </Flex>
       </Box>
