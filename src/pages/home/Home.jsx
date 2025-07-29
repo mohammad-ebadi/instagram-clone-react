@@ -14,7 +14,7 @@ function Home() {
         <Box
           flex={1}
           mr={20}
-          display={{ base: "none", lg: "block" }}
+          display={{ base: "block", lg: "block" }}
           maxW={"300"}
         >
           <SuggestedUsers></SuggestedUsers>
