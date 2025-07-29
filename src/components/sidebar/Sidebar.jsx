@@ -81,6 +81,7 @@ function Sidebar() {
           >
             {/* <img src="/search.png"></img> */}
             <Search></Search>
+            Search
           </Link>
           <Link
             // to="/"
