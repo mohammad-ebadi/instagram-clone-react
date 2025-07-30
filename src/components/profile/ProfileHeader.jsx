@@ -4,13 +4,13 @@ import useAuthStore from "../../store/useAuthStore.js";
 import EditProfile from "./EditProfile.jsx";
 
 function ProfileHeader() {
-  const {user} = useAuthStore()
-  console.log(user)
+  const { user } = useAuthStore();
+  console.log(user);
   return (
     <Flex gap={{ base: 4, sm: 10 }} direction={{ base: "column", sm: "row" }}>
       <Avatar.Root size={"2xl"}>
         <Avatar.Fallback name={user?.userName} />
-        <Avatar.Image src={user.profilePicURL } />
+        <Avatar.Image src={user.profilePicURL} />
       </Avatar.Root>
       <VStack alignItems={"start"} gap={2} mx={"auto"} flex={1}>
         <Flex
@@ -22,9 +22,7 @@ function ProfileHeader() {
         >
           <Text fontSize={{ base: "sm", md: "lg" }}>{user?.userName}</Text>
           <Flex gap={4} justifyContent={"center"} alignItems={"center"}>
-            <Button h={9} _hover={{ color: "blue.500" }}>
-              <EditProfile></EditProfile>
-            </Button>
+            <EditProfile></EditProfile>
           </Flex>
         </Flex>
         <Flex alignItems={"center"} gap={{ base: 2, sm: 4 }}>
@@ -44,20 +42,18 @@ function ProfileHeader() {
 
           <Text fontSize={{ base: "xs", md: "sm" }}>
             <Text as={"span"} fontWeight={"bold"} mr={1}>
-               {user?.following.length}
+              {user?.following.length}
             </Text>
             Following
           </Text>
         </Flex>
         <Flex alignItems={"center"} gap={4}>
           <Text fontSize={"sm"} fontWeight={"bold"}>
-           {user?.fullName}
+            {user?.fullName}
           </Text>
         </Flex>
 
-        <Text fontSize={"sm"}>
-          {user?.bio }
-        </Text>
+        <Text fontSize={"sm"}>{user?.bio}</Text>
       </VStack>
     </Flex>
   );
