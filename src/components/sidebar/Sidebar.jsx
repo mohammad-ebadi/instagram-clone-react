@@ -95,7 +95,7 @@ function Sidebar() {
             <Search></Search>
           </Link>
 
-          <Link
+          {/* <Link
             to="/"
             as={RouterLink}
             pl={2}
@@ -113,7 +113,7 @@ function Sidebar() {
             _hover={{ bg: "blackAlpha.500", borderRadius: 10 }}
           >
             <img src="/notifications.png"></img>
-          </Link>
+          </Link> */}
 
           <Link
             to="/"
