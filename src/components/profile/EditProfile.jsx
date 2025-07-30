@@ -46,6 +46,11 @@ const EditProfile = () => {
                 <br />
                 <label>Current Fullname : {user?.fullname}</label>
                 <Input placeholder="New Fullname..." type="text"></Input>
+                <br />
+                <br />
+
+                <label>Current Bio : {user?.bio}</label>
+                <Input placeholder="New Bio..." type="text"></Input>
               </Container>
             </Dialog.Body>
             <Dialog.Footer>
