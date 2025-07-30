@@ -44,7 +44,7 @@ const EditProfile = () => {
                 <Input placeholder="New Username..." type="text"></Input>
                 <br />
                 <br />
-                <label>Current Fullname : {user.fullName}</label>
+                <label>Current Fullname : {user?.fullName}</label>
                 <Input placeholder="New Fullname..." type="text"></Input>
                 <br />
                 <br />
