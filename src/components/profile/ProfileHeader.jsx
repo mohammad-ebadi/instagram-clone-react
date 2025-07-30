@@ -36,7 +36,7 @@ function ProfileHeader() {
 
           <Text fontSize={{ base: "xs", md: "sm" }}>
             <Text as={"span"} fontWeight={"bold"} mr={1}>
-              {user?.followers}
+              {user?.followers.length}
             </Text>
             Followers
           </Text>

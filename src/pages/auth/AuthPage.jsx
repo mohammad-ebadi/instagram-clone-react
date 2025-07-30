@@ -1,4 +1,5 @@
 // import Search from "../../components/sidebar/Search.jsx";
+import EditProfile from "../../components/profile/EditProfile.jsx";
 import AuthForm from "../../components/authForm/AuthForm.jsx";
 // import TestImageUploader from "@/components/TestImageUploader.jsx";
 import { Box, Container, Flex, Image, VStack } from "@chakra-ui/react";
@@ -26,6 +27,7 @@ function AuthPage() {
       </Container>
       {/* <TestImageUploader></TestImageUploader> */}
       {/* <Search></Search> */}
+      <EditProfile></EditProfile>
     </Flex>
   );
 }
