@@ -1,4 +1,4 @@
-// import Search from "../../components/sidebar/Search.jsx";
+import Search from "../../components/sidebar/Search.jsx";
 import EditProfile from "../../components/profile/EditProfile.jsx";
 import AuthForm from "../../components/authForm/AuthForm.jsx";
 // import TestImageUploader from "@/components/TestImageUploader.jsx";
@@ -29,7 +29,7 @@ function AuthPage() {
       {/* <TestImageUploader></TestImageUploader> */}
       {/* <Search></Search> */}
       {/* <EditProfile></EditProfile> */}
-      <AddPost></AddPost>
+      {/* <AddPost></AddPost> */}
     </Flex>
   );
 }

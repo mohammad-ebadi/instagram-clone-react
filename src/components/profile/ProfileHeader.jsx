@@ -3,6 +3,7 @@ import React from "react";
 import useAuthStore from "../../store/useAuthStore.js";
 import EditProfile from "./EditProfile.jsx";
 import AddPost from "../sidebar/AddPost.jsx";
+import Search from "../sidebar/Search.jsx";
 
 function ProfileHeader() {
   const { user } = useAuthStore();
@@ -25,6 +26,7 @@ function ProfileHeader() {
           <Flex gap={4} justifyContent={"center"} alignItems={"center"}>
             <EditProfile></EditProfile>
             <AddPost></AddPost>
+            <Search></Search>
           </Flex>
         </Flex>
         <Flex alignItems={"center"} gap={{ base: 2, sm: 4 }}>

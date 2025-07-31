@@ -14,9 +14,9 @@ const Search = () => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <Button variant="outline" size="sm" border={"none"}>
+        <Button variant="outline" size="sm" border={"none"} bg={"orange.500"} color={"white"}>
           <img src="/search.png" width={"30px"}></img>
-          
+          Search
         </Button>
       </Dialog.Trigger>
       <Portal>

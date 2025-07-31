@@ -71,29 +71,26 @@ function Sidebar() {
           </Link>
 
           {/* search */}
-          <Link
-            // to="/"
-            // navigate={<Search></Search>}
+          {/* <Link
+            
             as={RouterLink}
             pl={2}
             display={{ base: "none", md: "block" }}
             _hover={{ bg: "blackAlpha.500", borderRadius: 10 }}
           >
-            {/* <img src="/search.png"></img> */}
+            
             <Search></Search>
             Search
           </Link>
           <Link
-            // to="/"
-            // navigate={<Search></Search>}
+            
             as={RouterLink}
             pl={2}
             display={{ base: "block", md: "none" }}
             _hover={{ bg: "blackAlpha.500", borderRadius: 10 }}
           >
-            {/* <img src="/search.png"></img> */}
             <Search></Search>
-          </Link>
+          </Link> */}
 
           {/* <Link
             to="/"
