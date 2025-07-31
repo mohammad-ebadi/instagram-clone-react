@@ -4,6 +4,7 @@ import AuthForm from "../../components/authForm/AuthForm.jsx";
 // import TestImageUploader from "@/components/TestImageUploader.jsx";
 import { Box, Container, Flex, Image, VStack } from "@chakra-ui/react";
 import React from "react";
+import AddPost from "../../components/sidebar/AddPost.jsx";
 
 function AuthPage() {
   return (
@@ -28,6 +29,7 @@ function AuthPage() {
       {/* <TestImageUploader></TestImageUploader> */}
       {/* <Search></Search> */}
       {/* <EditProfile></EditProfile> */}
+      <AddPost></AddPost>
     </Flex>
   );
 }
