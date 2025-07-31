@@ -378,14 +378,14 @@ const EditProfile = () => {
             <Dialog.Body>
               <Container>
                 <Flex justifyContent={"center"} alignItems={"center"}>
-                  {/* <Avatar.Root size={"2xl"}>
+                  <Avatar.Root size={"2xl"}>
                     <Avatar.Fallback
-                      name={user?.fullName  user?.userName  "User"}
+                      name=""
                     />
                     {user?.profilePicURL && (
                       <Avatar.Image src={user.profilePicURL} />
                     )}
-                  </Avatar.Root> */}
+                  </Avatar.Root>
                   <Input type="file" border={"none"} cursor={"pointer"} />
                 </Flex>
                 <br />
