@@ -16,7 +16,7 @@ const EditProfile = () => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="sm" color={"white"} bg={"black"}>
           Edit Profile
         </Button>
       </Dialog.Trigger>
