@@ -107,8 +107,11 @@ const EditProfile = () => {
         fullName: newFullname,
         bio: newBio,
       });
+      alert("Successfully saved ✅")
+
     } catch (error) {
       console.error("Error updating profile:", error.message);
+      alert("Error")
     }
   };
 
