@@ -27,7 +27,7 @@ function AuthPage() {
       </Container>
       {/* <TestImageUploader></TestImageUploader> */}
       {/* <Search></Search> */}
-      <EditProfile></EditProfile>
+      {/* <EditProfile></EditProfile> */}
     </Flex>
   );
 }
