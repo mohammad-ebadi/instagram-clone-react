@@ -5,7 +5,7 @@ const AddPost = () => {
     <Dialog.Root>
       <Dialog.Trigger asChild>
         <Button variant="outline" size="sm" color={"white"} bg={"blue.500"}>
-          Add Post
+          📌 Add Post
         </Button>
       </Dialog.Trigger>
       <Portal>
@@ -13,7 +13,7 @@ const AddPost = () => {
         <Dialog.Positioner>
           <Dialog.Content>
             <Dialog.Header>
-              <Dialog.Title>📌 Create Post</Dialog.Title>
+              <Dialog.Title>Create Post</Dialog.Title>
             </Dialog.Header>
             <Dialog.Body>
               <p>
