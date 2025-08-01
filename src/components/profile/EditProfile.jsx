@@ -147,7 +147,7 @@ const EditProfile = () => {
           bg={"black"}
           disabled={isUploading}
         >
-          {isUploading ? "Uploading..." : "Edit Profile"}
+          {isUploading ? "Uploading..." : "📋 Edit Profile"}
         </Button>
       </Dialog.Trigger>
 

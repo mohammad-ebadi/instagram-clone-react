@@ -13,7 +13,7 @@ const AddPost = () => {
         <Dialog.Positioner>
           <Dialog.Content>
             <Dialog.Header>
-              <Dialog.Title>Create Post</Dialog.Title>
+              <Dialog.Title>📌 Create Post</Dialog.Title>
             </Dialog.Header>
             <Dialog.Body>
               <p>
