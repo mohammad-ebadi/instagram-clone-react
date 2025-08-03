@@ -29,7 +29,7 @@ function AuthPage() {
       {/* <TestImageUploader></TestImageUploader> */}
       {/* <Search></Search> */}
       {/* <EditProfile></EditProfile> */}
-      <AddPost></AddPost>
+      {/* <AddPost></AddPost> */}
     </Flex>
   );
 }
