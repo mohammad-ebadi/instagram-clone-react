@@ -122,7 +122,7 @@ import { Skeleton } from "@chakra-ui/react";
 import useAuthStore from "../../store/useAuthStore.js";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { firestore } from "../../config/firebase.jsx";
-import { supabase } from "../../config/supabase.js"; // اطمینان حاصل کن این مسیر درسته
+import { supabase } from "../../config/supabase.jsx"; // اطمینان حاصل کن این مسیر درسته
 
 function ProfilePosts() {
   const { user } = useAuthStore();
