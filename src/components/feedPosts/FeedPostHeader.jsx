@@ -96,7 +96,7 @@ function FeedPostHeader({ username, avatar }) {
       </Flex>
 
       {currentUsername !== username && !loading && (
-        <Button
+        <Box
           fontSize={12}
           cursor="pointer"
           color={isFollowing ? "blue.500" : "green.500"}
@@ -106,7 +106,7 @@ function FeedPostHeader({ username, avatar }) {
           onClick={handleFollowToggle}
         >
           <Text>{isFollowing ? "Unfollow" : "Follow"}</Text>
-        </Button>
+        </Box>
       )}
     </Flex>
   );
