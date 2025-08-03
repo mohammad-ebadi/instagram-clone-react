@@ -119,13 +119,7 @@
 import { Box, Button, Flex, Avatar } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { firestore } from "../../config/firebase.jsx";
-import {
-  doc,
-  getDoc,
-  updateDoc,
-  arrayUnion,
-  arrayRemove,
-} from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import useAuthStore from "../../store/useAuthStore.js";
 
 function FeedPostHeader({ username, avatar, uid }) {
@@ -140,12 +134,10 @@ function FeedPostHeader({ username, avatar, uid }) {
 
       const targetUserRef = doc(firestore, "users", uid);
       const snap = await getDoc(targetUserRef);
-
       if (snap.exists()) {
         const followers = snap.data().followers || [];
         setIsFollowing(followers.includes(currentUid));
       }
-
       setLoading(false);
     };
 
@@ -154,19 +146,21 @@ function FeedPostHeader({ username, avatar, uid }) {
 
   const handleFollowToggle = async () => {
     const targetUserRef = doc(firestore, "users", uid);
+    const snap = await getDoc(targetUserRef);
+    const data = snap.exists() ? snap.data() : {};
+    const followers = data.followers || [];
+
+    const updatedFollowers = isFollowing
+      ? followers.filter((id) => id !== currentUid)
+      : [...followers, currentUid];
 
     try {
-      if (isFollowing) {
-        await updateDoc(targetUserRef, {
-          followers: arrayRemove(currentUid),
-        });
-        setIsFollowing(false);
-      } else {
-        await updateDoc(targetUserRef, {
-          followers: arrayUnion(currentUid),
-        });
-        setIsFollowing(true);
-      }
+      await setDoc(
+        targetUserRef,
+        { followers: updatedFollowers },
+        { merge: true }
+      );
+      setIsFollowing(!isFollowing);
     } catch (err) {
       console.error("Error updating followers:", err);
     }
@@ -175,14 +169,9 @@ function FeedPostHeader({ username, avatar, uid }) {
   return (
     <Flex justifyContent="space-between" alignItems="center" w="full" my={2}>
       <Flex alignItems="center" gap={2}>
-        {/* <Avatar name={username} src={avatar} size="sm" /> */}
-        <Avatar.Root size="sm">
-          <Avatar.Fallback name={username} />
-          <Avatar.Image src={avatar} />
-        </Avatar.Root>
+        <Avatar name={username} src={avatar} size="sm" />
         <Box fontSize={12} fontWeight="bold">{username}</Box>
       </Flex>
-
       {currentUid !== uid && !loading && (
         <Button
           fontSize={12}
