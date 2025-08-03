@@ -32,7 +32,7 @@ function ProfileHeader() {
         <Flex alignItems={"center"} gap={{ base: 2, sm: 4 }}>
           <Text fontSize={{ base: "xs", md: "sm" }}>
             <Text as={"span"} fontWeight={"bold"} mr={1}>
-              {user?.posts}
+              {user?.posts.length}
             </Text>
             Posts
           </Text>
