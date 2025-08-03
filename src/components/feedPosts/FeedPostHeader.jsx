@@ -41,9 +41,8 @@
 
 
 
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text,Avatar } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { Avatar } from "@chakra-ui/react";
 import { doc, getDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { firestore } from "../../config/firebase.jsx";
 import { useAuthStore } from "../../store/useAuthStore.js"; // ← فرض: auth state از اینجا میاد
@@ -105,7 +104,11 @@ function FeedPostHeader({ username, avatar, uid }) {
   return (
     <Flex justifyContent={"space-between"} alignItems={"center"} w={"full"} my={2}>
       <Flex alignItems={"center"} gap={2}>
-        <Avatar size={"sm"} name={username} src={avatar} />
+        {/* <Avatar size={"sm"} name={username} src={avatar} /> */}
+        <Avatar.Root size={"sm"}>
+           <Avatar.Fallback name={username} />
+           <Avatar.Image src={avatar} />
+        </Avatar.Root>
         <Flex fontSize={12} fontWeight={"bold"} gap={2}>
           <h3>{username}</h3>
           <Box color={"gray.500"}>
