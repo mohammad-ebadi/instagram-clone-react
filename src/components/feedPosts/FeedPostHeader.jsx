@@ -28,7 +28,7 @@
 // export default FeedPostHeader;
 
 
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Avatar } from "@chakra-ui/react";
 import { firestore } from "../../config/firebase.jsx";
@@ -105,7 +105,7 @@ function FeedPostHeader({ username, avatar }) {
           transition="0.2s"
           onClick={handleFollowToggle}
         >
-          <Text>{isFollowing ? "Unfollow" : "Follow"}</Text>
+          <Button>{isFollowing ? "Unfollow" : "Follow"}</Button>
         </Box>
       )}
     </Flex>
