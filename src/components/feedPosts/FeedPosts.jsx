@@ -68,8 +68,8 @@ function FeedPosts() {
 
   return (
     <Container maxW={"container.sm"} py={10} px={2}>
-      {posts.map(({ img, username, avatar }, idx) => (
-        <FeedPost key={idx} img={img} username={username} avatar={avatar}/>
+      {posts.map(({ img, username, avatar ,uid}, idx) => (
+        <FeedPost key={idx} img={img} username={username} avatar={avatar} uid={uid}/>
       ))}
     </Container>
   );
