@@ -58,7 +58,7 @@ function FeedPostHeader({ username, avatar }) {
       setLoading(false);
     };
     checkFollowStatus();
-  });
+  }, [currentUsername, username,followDocId]);
 
   const handleFollowToggle = async () => {
     const ref = doc(firestore, "followers", followDocId);
