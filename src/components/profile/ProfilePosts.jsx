@@ -161,7 +161,7 @@ function ProfilePosts() {
   }, [user]);
 
   const handleDeleteImage = async (imgUrl) => {
-    const confirm = prompt("برای حذف تصویر y را وارد کن. برای لغو n یا Cancel را بزن.");
+    const confirm = prompt("Enter 'y' for Delete / 'n' for Cancel");
     if (confirm?.toLowerCase() !== "y") return;
 
     try {
